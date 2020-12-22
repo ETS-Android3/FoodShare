@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".AddCreationActivity">
+
+    <ImageView
+        android:id="@+id/ivCreatedImage"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/btnStoredMedia"
+        android:layout_marginTop="30dp"
+        android:scaleType="centerCrop"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivCreatedImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="#EAEAEA"
+        android:text="Save"
+        android:textColor="#2F63BC"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSubmit"
+        android:layout_alignBottom="@+id/btnSubmit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="-55dp"
+        android:background="#EAEAEA"
+        android:text="Cancel" />
+
+    <Button
+        android:id="@+id/btnStoredMedia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Select Image" />
+
+</RelativeLayout>

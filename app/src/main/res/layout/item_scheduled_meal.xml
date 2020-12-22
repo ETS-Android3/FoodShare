@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="20dp">
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="Scheduled at: "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvSchedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toEndOf="@+id/textview"
+        android:fontFamily="sans-serif-black"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/ivScheduledImage"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/textview"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btnAddImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivScheduledImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="Add Creation" />
+
+
+</RelativeLayout>

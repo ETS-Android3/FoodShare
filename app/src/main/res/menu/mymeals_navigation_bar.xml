@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_scheduled_meals"
+        android:icon="@drawable/ic_baseline_calendar_today_24"
+        android:title="Scheduled"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_created_meals"
+        android:icon="@drawable/chef"
+        android:title="Created"
+        app:showAsAction="always" />
+</menu>
