@@ -87,6 +87,7 @@ public class ImageDetail extends AppCompatActivity {
 
             try {
                 scheduleImage(imageAPI.getImage(), schedule);
+                finish();
             } catch (ParseException e) {
                 e.printStackTrace();
             }

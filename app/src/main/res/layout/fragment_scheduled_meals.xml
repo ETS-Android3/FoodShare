@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.ScheduledMealsFragment">
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvScheduledMeals"
@@ -11,4 +14,30 @@
         android:layout_height="match_parent"
         android:padding="8dp" />
 
-</FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_extra1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_extra1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:gravity="center_horizontal"
+        android:text="Empty Schedule"
+        android:textColor="#636363"
+        android:textColorHint="#FFFFFF"
+        android:textSize="30dp" />
+
+    <ImageView
+        android:id="@+id/iv_extra1"
+        android:layout_width="122dp"
+        android:layout_height="91dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="143dp"
+        android:layout_marginTop="105dp"
+        android:gravity="center_horizontal"
+        android:src="@drawable/empty_schedule" />
+
+</RelativeLayout>

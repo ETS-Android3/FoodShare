@@ -139,8 +139,8 @@ public class AddCreationActivity extends AppCompatActivity {
                     Toast.makeText(AddCreationActivity.this, "Error with uploading photo.", Toast.LENGTH_SHORT).show();
                 } else {
                     Log.i(TAG, "Upload successful!");
-                    finish();
                 }
+                finish();
             }
         });
     }

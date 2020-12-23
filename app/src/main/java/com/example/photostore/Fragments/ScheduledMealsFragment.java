@@ -17,6 +17,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.photostore.Adapters.ImageAdapter;
 import com.example.photostore.Adapters.ScheduledImageAdapter;
@@ -31,6 +33,8 @@ import java.util.List;
 
 public class ScheduledMealsFragment extends Fragment {
 
+    ImageView iv;
+    TextView tv;
     private RecyclerView rvScheduledMeals;
     List<ScheduledImage> scheduledImages;
     ScheduledImageAdapter scheduledImageAdapter;
@@ -55,9 +59,12 @@ public class ScheduledMealsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // create scheduled meal item
+        iv = view.findViewById(R.id.iv_extra1);
+        tv = view.findViewById(R.id.tv_extra1);
 
-        // query scheduled meals from DB
+        iv.setVisibility(View.GONE);
+        tv.setVisibility(View.GONE);
+
         rvScheduledMeals = view.findViewById(R.id.rvScheduledMeals);
         scheduledImages = new ArrayList<>();
 
@@ -87,13 +94,12 @@ public class ScheduledMealsFragment extends Fragment {
                     return;
                 }
 
-                for (ScheduledImage post : scheduledImages) {
-                    Log.i("Scheduled Image", "Schedule: " + post.getDate() + ", Image: " + post.getImage());
-                }
-
                 scheduledImageAdapter.clear();
                 scheduledImages.addAll(images);
-                //swipeContainer.setRefreshing(false);
+                if (scheduledImages.size() == 0) {
+                    iv.setVisibility(View.VISIBLE);
+                    tv.setVisibility(View.VISIBLE);
+                }
                 scheduledImageAdapter.notifyDataSetChanged();
             }
         });

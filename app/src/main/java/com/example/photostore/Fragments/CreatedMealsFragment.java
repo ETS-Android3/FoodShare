@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.photostore.Adapters.CreatedImageAdapter;
 import com.example.photostore.Adapters.ScheduledImageAdapter;
@@ -27,6 +29,8 @@ import java.util.List;
 
 public class CreatedMealsFragment extends Fragment {
 
+    ImageView iv;
+    TextView tv;
     private RecyclerView rvCreatedMeals;
     List<CreatedImage> createdImages;
     CreatedImageAdapter createdImageAdapter;
@@ -50,6 +54,13 @@ public class CreatedMealsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        iv = view.findViewById(R.id.iv_extra2);
+        tv = view.findViewById(R.id.tv_extra2);
+
+        iv.setVisibility(View.INVISIBLE);
+        tv.setVisibility(View.INVISIBLE);
+
         rvCreatedMeals = view.findViewById(R.id.rvCreatedMeals);
         createdImages = new ArrayList<>();
 
@@ -61,7 +72,6 @@ public class CreatedMealsFragment extends Fragment {
 
         queryPosts();
 
-        // query created meals
     }
 
     private void queryPosts() {
@@ -79,7 +89,10 @@ public class CreatedMealsFragment extends Fragment {
 
                 createdImageAdapter.clear();
                 createdImages.addAll(images);
-                //swipeContainer.setRefreshing(false);
+                if (createdImages.size() == 0) {
+                    iv.setVisibility(View.VISIBLE);
+                    tv.setVisibility(View.VISIBLE);
+                }
                 createdImageAdapter.notifyDataSetChanged();
             }
         });

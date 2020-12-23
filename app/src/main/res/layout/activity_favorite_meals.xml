@@ -14,4 +14,29 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
+    <TextView
+        android:id="@+id/tv_extra3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_extra3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:gravity="center_horizontal"
+        android:text="No Favorite Meals"
+        android:textColor="#636363"
+        android:textColorHint="#FFFFFF"
+        android:textSize="30dp" />
+
+    <ImageView
+        android:id="@+id/iv_extra3"
+        android:layout_width="164dp"
+        android:layout_height="124dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="95dp"
+        android:gravity="center_horizontal"
+        android:src="?android:attr/actionModeFindDrawable" />
+
 </RelativeLayout>

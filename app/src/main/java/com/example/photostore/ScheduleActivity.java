@@ -17,8 +17,6 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.photostore.Fragments.InspirationFragment;
-
 import java.util.Calendar;
 
 public class ScheduleActivity extends AppCompatActivity {
@@ -34,6 +32,7 @@ public class ScheduleActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Schedule Meal");
 
         et_date = findViewById(R.id.et_date);
         et_time = findViewById(R.id.et_time);
@@ -75,15 +74,10 @@ public class ScheduleActivity extends AppCompatActivity {
                     intent.putExtra("date", et_date.getText().toString());
                     intent.putExtra("time", et_time.getText().toString());
                     setResult(RESULT_OK, intent);
-                    goToDashboard();
+                    finish();
                 }
             }
         });
-    }
-
-    private void goToDashboard() {
-        Intent intent = new Intent(this, InspirationFragment.class);
-        startActivity(intent);
     }
 
     private void showTimeDialog(final EditText et_time) {

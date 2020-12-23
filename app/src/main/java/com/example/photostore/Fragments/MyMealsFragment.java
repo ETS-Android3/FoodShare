@@ -48,6 +48,7 @@ public class MyMealsFragment extends Fragment {
         card_myMeals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                card_myMeals.setElevation(0);
                 Intent i = new Intent(getContext(), ScheduledMeals.class);
                 startActivity(i);
             }
@@ -56,6 +57,7 @@ public class MyMealsFragment extends Fragment {
         card_favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                card_favorite.setElevation(0);
                 Intent i = new Intent(getContext(), FavoriteMeals.class);
                 startActivity(i);
             }

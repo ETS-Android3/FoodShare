@@ -1,11 +1,16 @@
 package com.example.photostore;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.photostore.Adapters.FavoriteImageAdapter;
 import com.example.photostore.Adapters.ImageAdapter;
@@ -20,6 +25,8 @@ import java.util.List;
 
 public class FavoriteMeals extends AppCompatActivity {
 
+    ImageView iv;
+    TextView tv;
     private RecyclerView rvFavoriteMeals;
     public static final String TAG = "FavoriteMeals";
     List<FavoriteImage> favoriteImages;
@@ -29,6 +36,18 @@ public class FavoriteMeals extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite_meals);
+
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+        actionBar.setTitle("Favorites");
+
+        iv = findViewById(R.id.iv_extra3);
+        tv = findViewById(R.id.tv_extra3);
+
+        iv.setVisibility(View.INVISIBLE);
+        tv.setVisibility(View.INVISIBLE);
 
         rvFavoriteMeals = findViewById(R.id.rvFavoriteMeals);
         favoriteImages = new ArrayList<>();
@@ -58,9 +77,20 @@ public class FavoriteMeals extends AppCompatActivity {
 
                 favoriteImageAdapter.clear();
                 favoriteImages.addAll(images);
-                //swipeContainer.setRefreshing(false);
+                if (favoriteImages.size() == 0) {
+                    iv.setVisibility(View.VISIBLE);
+                    tv.setVisibility(View.VISIBLE);
+                }
                 favoriteImageAdapter.notifyDataSetChanged();
             }
         });
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
