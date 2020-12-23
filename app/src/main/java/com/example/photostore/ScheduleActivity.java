@@ -88,7 +88,7 @@ public class ScheduleActivity extends AppCompatActivity {
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
                 calendar.set(Calendar.MINUTE, minute);
-                String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.DAY_OF_MONTH);
+                String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
                 et_time.setText(time);
             }
         };
