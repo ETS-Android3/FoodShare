@@ -15,8 +15,8 @@ import android.view.ViewGroup;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
+import com.example.photostore.Adapters.ImageAPIAdapter;
 import com.example.photostore.ImageAPI;
-import com.example.photostore.Adapters.ImageAdapter;
 import com.example.photostore.R;
 
 import org.json.JSONArray;
@@ -58,7 +58,7 @@ public class InspirationFragment extends Fragment {
         rvImages = view.findViewById(R.id.rvImages);
         imageAPIS = new ArrayList<>();
 
-        final ImageAdapter imageAdapter = new ImageAdapter(getContext(), imageAPIS);
+        final ImageAPIAdapter imageAdapter = new ImageAPIAdapter(getContext(), imageAPIS);
 
         rvImages.setAdapter(imageAdapter);
 

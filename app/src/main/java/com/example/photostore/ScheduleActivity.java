@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.parse.ParseUser;
+
 import java.util.Calendar;
 
 public class ScheduleActivity extends AppCompatActivity {

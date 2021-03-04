@@ -13,12 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.photostore.Adapters.FavoriteImageAdapter;
-import com.example.photostore.Adapters.ImageAdapter;
 import com.example.photostore.Models.FavoriteImage;
 import com.example.photostore.Models.ScheduledImage;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +64,8 @@ public class FavoriteMeals extends AppCompatActivity {
 
     private void queryPosts() {
         ParseQuery<FavoriteImage> query = ParseQuery.getQuery(FavoriteImage.class);
-        //query.include(Post.KEY_USER);
+        query.include(ScheduledImage.KEY_USER);
+        query.whereEqualTo(ScheduledImage.KEY_USER, ParseUser.getCurrentUser());
         query.setLimit(20);
         //query.addDescendingOrder(ScheduledImage.KEY_CREATED_AT);
         query.findInBackground(new FindCallback<FavoriteImage>() {
@@ -74,7 +75,6 @@ public class FavoriteMeals extends AppCompatActivity {
                     Log.e("Scheduled Image", "Issue with getting posts", e);
                     return;
                 }
-
                 favoriteImageAdapter.clear();
                 favoriteImages.addAll(images);
                 if (favoriteImages.size() == 0) {

@@ -1,7 +1,6 @@
 package com.example.photostore.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.photostore.ImageAPI;
-import com.example.photostore.ImageDetail;
-import com.example.photostore.Models.CreatedImage;
 import com.example.photostore.Models.FavoriteImage;
 import com.example.photostore.R;
-
-import org.parceler.Parcels;
 
 import java.util.List;
 

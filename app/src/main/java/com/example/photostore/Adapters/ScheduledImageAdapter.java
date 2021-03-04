@@ -25,7 +25,6 @@ public class ScheduledImageAdapter extends RecyclerView.Adapter<ScheduledImageAd
 
     public static final String TAG = "SchedImageAdapter";
     Context context;
-    Fragment fragment;
     List<ScheduledImage> scheduledImages;
 
 

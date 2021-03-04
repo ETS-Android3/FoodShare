@@ -23,6 +23,7 @@ import com.example.photostore.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +77,8 @@ public class CreatedMealsFragment extends Fragment {
 
     private void queryPosts() {
         ParseQuery<CreatedImage> query = ParseQuery.getQuery(CreatedImage.class);
-        //query.include(Post.KEY_USER);
+        query.include(ScheduledImage.KEY_USER);
+        query.whereEqualTo(ScheduledImage.KEY_USER, ParseUser.getCurrentUser());
         query.setLimit(20);
         //query.addDescendingOrder(ScheduledImage.KEY_CREATED_AT);
         query.findInBackground(new FindCallback<CreatedImage>() {

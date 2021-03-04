@@ -32,6 +32,7 @@ import android.widget.Toast;
 import com.example.photostore.Models.CreatedImage;
 import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import org.parceler.Parcels;
@@ -129,6 +130,8 @@ public class AddCreationActivity extends AppCompatActivity {
 
     private void saveImage(ParseFile parseFile, String schedule) {
         CreatedImage createdImage = new CreatedImage();
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        createdImage.setUser(currentUser);
         createdImage.setScheduledPic(schedule);
         createdImage.setCreatedPic(parseFile);
         createdImage.saveInBackground(new SaveCallback() {

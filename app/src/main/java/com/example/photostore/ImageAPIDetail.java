@@ -16,11 +16,12 @@ import com.bumptech.glide.Glide;
 import com.example.photostore.Models.FavoriteImage;
 import com.example.photostore.Models.ScheduledImage;
 import com.parse.ParseException;
+import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import org.parceler.Parcels;
 
-public class ImageDetail extends AppCompatActivity {
+public class ImageAPIDetail extends AppCompatActivity {
 
     ImageView ivImageDetail;
     ImageAPI imageAPI;
@@ -67,6 +68,8 @@ public class ImageDetail extends AppCompatActivity {
 
     private void addToFavorite() {
         FavoriteImage favoriteImage = new FavoriteImage();
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        favoriteImage.setUser(currentUser);
         favoriteImage.setImage(imageAPI.getImage());
         favoriteImage.saveInBackground(new SaveCallback() {
             @Override
@@ -81,6 +84,7 @@ public class ImageDetail extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
+            assert data != null;
             String date = data.getStringExtra("date");
             String time = data.getStringExtra("time");
             String schedule = date + " " + time;
@@ -98,7 +102,9 @@ public class ImageDetail extends AppCompatActivity {
     }
 
     private void scheduleImage(final String image, String schedule) throws ParseException {
+        ParseUser currentUser = ParseUser.getCurrentUser();
         ScheduledImage scheduledImage = new ScheduledImage();
+        scheduledImage.setUser(currentUser);
         scheduledImage.setImage(image);
         scheduledImage.setDate(schedule);
         scheduledImage.saveInBackground(new SaveCallback() {

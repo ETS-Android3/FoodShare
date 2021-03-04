@@ -93,19 +93,15 @@ public class LogInActivity extends AppCompatActivity {
         user.signUpInBackground(new SignUpCallback() {
             public void done(ParseException e) {
                 if (e == null) {
-                    // Hooray! Let them use the app now.
                     goMainActivity();
                     Toast.makeText(LogInActivity.this, "Sign up successful!", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Sign up didn't succeed. Look at the ParseException
-                    // to figure out what went wrong
                     Log.e(TAG, "Issue with sign up", e);
                     Toast.makeText(LogInActivity.this, "Issue with sign up.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
-
 
     private void goMainActivity() {
         Intent i = new Intent(this, MainActivity.class);
