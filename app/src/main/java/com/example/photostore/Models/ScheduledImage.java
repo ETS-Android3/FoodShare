@@ -10,8 +10,6 @@ public class ScheduledImage extends ParseObject {
     public static final String KEY_IMAGE = "image";
     public static final String KEY_USER = "user";
     public static final String KEY_DATE = "date";
-    public static final String KEY_BOOL_CREATED = "created";
-    public static final String KEY_CREATION_PHOTO = "created";
 
     public String getImage() {
         return getString(KEY_IMAGE);

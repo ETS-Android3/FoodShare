@@ -29,7 +29,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.photostore.Fragments.CreatedMealsFragment;
 import com.example.photostore.Models.CreatedImage;
+import com.example.photostore.Models.ScheduledImage;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
@@ -56,8 +58,6 @@ public class AddCreationActivity extends AppCompatActivity {
     public static final String TAG = "Creation";
     public static final int IMAGE_PICK_CODE = 1000;
     public static final int PERMISSION_CODE = 1001;
-    public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
-    private File photoFile; // new post
     ParseFile parseFile;
 
     @Override
@@ -71,7 +71,8 @@ public class AddCreationActivity extends AppCompatActivity {
         actionBar.setTitle("Add Creation");
 
         Intent intent = getIntent();
-        final String scheduledImage = intent.getStringExtra("schedImage");
+
+        final String scheduledImage = intent.getStringExtra("scheduledImage");
 
         btnStoredMedia = findViewById(R.id.btnStoredMedia);
         btnSave = findViewById(R.id.btnSubmit);
@@ -81,7 +82,6 @@ public class AddCreationActivity extends AppCompatActivity {
         btnSave.setVisibility(View.INVISIBLE);
         btnCancel.setVisibility(View.INVISIBLE);
 
-        // transfer camera + stored media logic here
         btnStoredMedia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,7 +128,9 @@ public class AddCreationActivity extends AppCompatActivity {
         });
     }
 
-    private void saveImage(ParseFile parseFile, String schedule) {
+    private void saveImage(ParseFile parseFile, final String schedule) {
+        // 1. Add creation button - needs a reference to the scheduled photo you're adding the creation for
+        // 2. That would update the scheduled photo instead of creating a new class
         CreatedImage createdImage = new CreatedImage();
         ParseUser currentUser = ParseUser.getCurrentUser();
         createdImage.setUser(currentUser);
@@ -172,11 +174,13 @@ public class AddCreationActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
 
+            assert data != null;
             Uri uri = data.getData();
 
             String realPath = ImageFilePath.getPath(AddCreationActivity.this, data.getData());
 
-            photoFile = new File(realPath);
+            // new post
+            File photoFile = new File(realPath);
             parseFile = new ParseFile(photoFile);
 
             Log.i(TAG, "onActivityResult: file path : " + realPath);

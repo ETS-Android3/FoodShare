@@ -19,10 +19,10 @@ public class ImageAPI {
         image = jsonObject.getString("full");
     }
 
-    public static List<ImageAPI> fromJsonArray(JSONArray movieJsonArray) throws JSONException {
+    public static List<ImageAPI> fromJsonArray(JSONArray imageJsonArray) throws JSONException {
         List<ImageAPI> imageAPIS = new ArrayList<>();
-        for (int i = 0; i < movieJsonArray.length(); i++) {
-            imageAPIS.add(new ImageAPI(movieJsonArray.getJSONObject(i).getJSONObject("urls")));
+        for (int i = 0; i < imageJsonArray.length(); i++) {
+            imageAPIS.add(new ImageAPI(imageJsonArray.getJSONObject(i).getJSONObject("urls")));
         }
         return imageAPIS;
     }

@@ -73,7 +73,6 @@ public class ScheduledMealsFragment extends Fragment {
 
         queryPosts();
 
-        // onActivityResult - delete Meal from ScheduledMeal and send Image to CreatedMeals
     }
 
     private void queryPosts() {
@@ -81,7 +80,7 @@ public class ScheduledMealsFragment extends Fragment {
         query.include(ScheduledImage.KEY_USER);
         query.whereEqualTo(ScheduledImage.KEY_USER, ParseUser.getCurrentUser());
         query.setLimit(20);
-        //query.addDescendingOrder(ScheduledImage.KEY_CREATED_AT);
+        query.addDescendingOrder(ScheduledImage.KEY_DATE);
         query.findInBackground(new FindCallback<ScheduledImage>() {
             @Override
             public void done(List<ScheduledImage> images, ParseException e) {
@@ -89,7 +88,6 @@ public class ScheduledMealsFragment extends Fragment {
                     Log.e("Scheduled Image", "Issue with getting posts", e);
                     return;
                 }
-
                 scheduledImageAdapter.clear();
                 scheduledImages.addAll(images);
                 if (scheduledImages.size() == 0) {

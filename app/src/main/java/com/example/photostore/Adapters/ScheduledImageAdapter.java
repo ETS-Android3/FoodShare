@@ -2,6 +2,7 @@ package com.example.photostore.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,9 @@ import com.example.photostore.AddCreationActivity;
 import com.example.photostore.Models.ScheduledImage;
 import com.example.photostore.R;
 
+import org.parceler.Parcels;
+
+import java.io.Serializable;
 import java.util.List;
 
 public class ScheduledImageAdapter extends RecyclerView.Adapter<ScheduledImageAdapter.ViewHolder> {
@@ -85,15 +89,11 @@ public class ScheduledImageAdapter extends RecyclerView.Adapter<ScheduledImageAd
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, AddCreationActivity.class);
-                    intent.putExtra("schedImage", scheduledImage.getImage());
+                    intent.putExtra("scheduledImage", scheduledImage.getImage());
                     Log.i(TAG, scheduledImage.getImage());
                     context.startActivity(intent);
                 }
             });
-
-            // onActivityResult
-                // 1.) Delete the scheduled image
-                // 2.) Add image to CreatedMeals
         }
     }
 }

@@ -80,7 +80,7 @@ public class CreatedMealsFragment extends Fragment {
         query.include(ScheduledImage.KEY_USER);
         query.whereEqualTo(ScheduledImage.KEY_USER, ParseUser.getCurrentUser());
         query.setLimit(20);
-        //query.addDescendingOrder(ScheduledImage.KEY_CREATED_AT);
+        query.addDescendingOrder(ScheduledImage.KEY_CREATED_AT);
         query.findInBackground(new FindCallback<CreatedImage>() {
             @Override
             public void done(List<CreatedImage> images, ParseException e) {
