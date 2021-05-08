@@ -1,5 +1,5 @@
 # Foodspiration
-Foodspiration is an android application that allows users to browse food photos for "inspiration," and favorite and schedule them for future meals. Once the scheduled meals are created, users can add photos of their own "creation" of the meal. 
+Android application for browsing and scheduling meals. Includes photo-sharing features. 
 
 The app uses Back4App as its Database, and Parse as its backend. The [Unsplash Image API](https://unsplash.com/developers) is used as photo source. 
 
