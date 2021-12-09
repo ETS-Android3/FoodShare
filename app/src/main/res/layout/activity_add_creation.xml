@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
+    app:titleTextColor="@android:color/white"
     tools:context=".AddCreationActivity">
 
     <ImageView
@@ -25,7 +26,6 @@
         android:layout_marginTop="40dp"
         android:background="#EAEAEA"
         android:text="Save"
-        android:textColor="#2F63BC"
         android:textStyle="bold" />
 
     <Button
